@@ -1,4 +1,3 @@
-import 'package:bokkly_app/constants.dart';
 import 'package:bokkly_app/core/utils/assets.dart';
 import 'package:bokkly_app/core/utils/styles.dart';
 import 'package:bokkly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -20,6 +19,7 @@ class HomeViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Text('Best Seller', style: Styles.textStyle18),
         ),
+        SizedBox(height: 20),
         BestSellerListViewItem(),
       ],
     );
@@ -31,24 +31,39 @@ class BestSellerListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 125,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.red,
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(AssetsData.testImage),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        height: 125,
+        child: Row(
+          children: [
+            AspectRatio(
+              aspectRatio: 2.5 / 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.red,
+                  image: const DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(AssetsData.testImage),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 30),
+            Column(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: const Text('Harry Potter and the Goblet for Fire',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.textStyle20),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
