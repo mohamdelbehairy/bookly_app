@@ -1,3 +1,4 @@
+import 'package:bokkly_app/core/utils/app_router.dart';
 import 'package:bokkly_app/core/utils/assets.dart';
 import 'package:bokkly_app/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,7 +60,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         // Get.to(() => const HomeView(),
         //     transition: Transition.leftToRight, duration: kTranstionDuration);
 
-        GoRouter.of(context).push('/homeView');
+        GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );
   }
