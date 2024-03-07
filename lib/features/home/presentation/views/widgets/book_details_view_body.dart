@@ -3,7 +3,9 @@ import 'package:bokkly_app/features/home/presentation/views/widgets/book_rating.
 import 'package:bokkly_app/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bokkly_app/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bokkly_app/features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:bokkly_app/features/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -33,8 +35,20 @@ class BookDetailsViewBody extends StatelessWidget {
           const BookRating(mainAxisAlignment: MainAxisAlignment.center),
           const SizedBox(height: 37),
           const BooksAction(),
+          const SizedBox(height: 50),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text('You can also like',
+                style:
+                    Styles.textStyle14.copyWith(fontWeight: FontWeight.w600)),
+          ),
+          const SizedBox(height: 16),
+          const SimillarBooksListView(),
+          const SizedBox(height: 40),
         ],
       ),
     );
   }
 }
+
+
