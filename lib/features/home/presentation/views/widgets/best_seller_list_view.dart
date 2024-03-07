@@ -10,7 +10,7 @@ class BestSellerListView extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
       return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
-          child: BestSellerListViewItem());
+          child: BookListViewItem());
     }));
   }
 }
