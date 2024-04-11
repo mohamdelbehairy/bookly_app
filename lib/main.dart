@@ -1,3 +1,4 @@
+import 'package:bokkly_app/bloc_observer.dart';
 import 'package:bokkly_app/constants.dart';
 import 'package:bokkly_app/core/utils/app_router.dart';
 import 'package:bokkly_app/core/utils/service_locator.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
   runApp(const BooklyApp());
 }
@@ -21,10 +23,11 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (context) =>
-                  FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks()),
+              create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())
+                ..fetchFeaturedBooks()),
           BlocProvider(
-              create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>())),
+              create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>())
+                ..fetchNewsetBooks()),
         ],
         child: MaterialApp.router(
             routerConfig: AppRouter.router,
