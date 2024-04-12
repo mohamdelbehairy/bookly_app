@@ -21,12 +21,11 @@ class FeaturedBooksListView extends StatelessWidget {
                 itemCount: state.books.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(right: 16),
-                    child: CustomBookImage(
-                        imageUrl: state.books[index].volumeInfo.imageLinks
-                                ?.thumbnail ??
-                            ''),
-                  );
+                      padding: const EdgeInsets.only(right: 16),
+                      child: CustomBookImage(
+                          imageUrl: state.books[index].volumeInfo.imageLinks
+                                  ?.thumbnail ??
+                              ''));
                 }),
           );
         } else if (state is FeaturedBooksFailure) {
