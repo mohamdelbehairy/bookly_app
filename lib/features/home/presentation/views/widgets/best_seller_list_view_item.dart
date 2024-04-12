@@ -22,7 +22,8 @@ class BookListViewItem extends StatelessWidget {
           height: 125,
           child: Row(
             children: [
-              CustomBookImage(imageUrl: book.volumeInfo.imageLinks.thumbnail),
+              CustomBookImage(
+                  imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? ''),
               const SizedBox(width: 30),
               Expanded(
                 child: Column(
@@ -36,7 +37,7 @@ class BookListViewItem extends StatelessWidget {
                             style: Styles.textStyle20
                                 .copyWith(fontFamily: kGtSectraFine))),
                     const SizedBox(height: 2),
-                    Text(book.volumeInfo.authors![0],
+                    Text(book.volumeInfo.authors?[0] ?? '',
                         style: Styles.textStyle14),
                     const SizedBox(height: 2),
                     Row(
