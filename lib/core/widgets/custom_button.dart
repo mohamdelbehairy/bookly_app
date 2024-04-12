@@ -7,7 +7,9 @@ class CustomButton extends StatelessWidget {
       required this.onPressed,
       required this.backgrounColor,
       required this.textColor,
-      this.borderRadius, required this.text, this.fontSize});
+      this.borderRadius,
+      required this.text,
+      this.fontSize});
   final Function() onPressed;
   final Color backgrounColor;
   final Color textColor;
@@ -20,19 +22,17 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       height: 48,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: TextButton.styleFrom(
           backgroundColor: backgrounColor,
           shape: RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(12)),
         ),
-        child: Text(
-          text,
-          style: Styles.textStyle18
-              .copyWith(color: textColor, fontWeight: FontWeight.w900,
-              fontSize: fontSize,
-              ),
-        ),
+        child: Text(text,
+            style: Styles.textStyle18.copyWith(
+                color: textColor,
+                fontWeight: FontWeight.w900,
+                fontSize: fontSize)),
       ),
     );
   }

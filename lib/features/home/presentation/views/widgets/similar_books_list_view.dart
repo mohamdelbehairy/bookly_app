@@ -20,12 +20,12 @@ class SimillarBooksListView extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 itemCount: state.books.length,
                 itemBuilder: (context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                    child: CustomBookImage(
-                        imageUrl:
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThgzj5oWSlQgrZhI2C_tBwr6cGyWgKNoZx7froAtVA6gTTKICiqe_Fja7mSfD9Wtzvj1A&usqp=CAU'),
-                  );
+                  return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: CustomBookImage(
+                          imageUrl: state.books[index].volumeInfo.imageLinks
+                                  ?.thumbnail ??
+                              ""));
                 }),
           );
         } else if (state is SimilarBooksFailure) {
